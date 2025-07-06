@@ -44,10 +44,31 @@ let swiperProjects = new Swiper(".projects__container", {
 
 
 /*=============== SWIPER TESTIMONIAL ===============*/
-
+let swiperTestimonial = new Swiper(".testimonial__container", {
+    grabCursor:true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
 
 /*=============== EMAIL JS ===============*/
+const contactForm = document.getElementById('contact-form'),
+  contactName = document.getElementById('contact-name'),
+  contactEmail = document.getElementById('contact-email'),
+  contactProject = document.getElementById('contact-project')
+  contactMessage = document.getElementById('contact-message')
 
+const sendEmail = (e) => {
+  e.preventDefault()
+  if(contactName.value === '' || contactEmail.value === '' || contactProject.value === '') {
+    contactMessage.classList.remove('color-blue')
+    contactMessage.classList.add('color-red')
+    
+  }
+}
+contactForm.addEventListener('submit', sendEmail)
+  
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 
