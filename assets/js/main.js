@@ -53,18 +53,37 @@ let swiperTestimonial = new Swiper(".testimonial__container", {
   });
 
 /*=============== EMAIL JS ===============*/
-const contactForm = document.getElementById('contact-form'),
-  contactName = document.getElementById('contact-name'),
-  contactEmail = document.getElementById('contact-email'),
-  contactProject = document.getElementById('contact-project')
-  contactMessage = document.getElementById('contact-message')
+const contactForm = document.getElementById('contact-form');
+const contactName = document.getElementById('contact-name');
+const contactEmail = document.getElementById('contact-email');
+const contactProject = document.getElementById('contact-project');
+const contactMessage = document.getElementById('contact-message');
 
 const sendEmail = (e) => {
   e.preventDefault()
   if(contactName.value === '' || contactEmail.value === '' || contactProject.value === '') {
     contactMessage.classList.remove('color-blue')
     contactMessage.classList.add('color-red')
+
+
+    contactMessage.textContent = 'Write all the input fields 📩'
     
+  } else {
+    emailjs.sendForm('service_knordzb', 'template_q7lc924', '#contact-form', '31hzm1Bb0zlb0qzDB')
+    .then(() => {
+      contactMessage.classList.add('color-blue')
+      contactMessage.textContent = "Message sent ✅"
+      setTimeout(()=> {
+        contactMessage.textContent = ''
+
+      }, 5000)
+    }, (error) => {
+      alert('OOPS! SOMETHING HAS FAILED...', error)
+    })
+    
+    contactName.value = ''
+    contactEmail.value = ''
+    contactProject.value = ''
   }
 }
 contactForm.addEventListener('submit', sendEmail)
