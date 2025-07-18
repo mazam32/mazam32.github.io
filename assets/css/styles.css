@@ -522,6 +522,7 @@ body.dark-theme {
   font-weight: initial;
 }
 
+
 .qualification__info{
   display: grid;
   row-gap: 2rem;
@@ -1011,7 +1012,231 @@ body.dark-theme {
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
+@media screen and (max-width: 340px) {
+  .container{
+    margin-inline: 1rem;
+  }
+
+  .nav__menu{
+    padding-bottom: 4rem;
+  }
+
+  .nav__list{
+    gap: 1rem 1.25rem;
+  }
+
+  .skills__info{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects__img{
+    width: 200px;
+    justify-self: center;
+  }
+}
 
 /* For medium devices */
+@media screen and (max-width:576px) {
+  .nav,
+  .nav__menu{
+    width: 380px;
+  }
 
+  .nav{
+    margin: 0 auto;
+  }
+
+  .skills__container{
+    justify-content: center;
+  }
+
+  .projects__container,
+  .testimonial__container{
+    width: 400px;
+  }
+
+  .projects__container{
+    overflow: hidden;
+  }
+
+  .projects__container .swiper-button-prev{
+    left: 1rem;
+  }
+
+  .projects__container .swiper-button-next{
+    right: 1rem;
+  }
+}
+
+
+@media screen and (min-width: 767px) {
+  .home__container{
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+
+  .home__data{
+    order: 2;
+  }
+
+  .home__info:nth-child(3){
+    order: 3;
+    text-align: right;
+  }
+
+  .home__info{
+    margin-top: 10rem;
+  }
+
+  .home__info-description{
+    padding-right: 0;
+  }
+
+  .skills__container,
+  .services__container{
+    grid-template-columns: repeat(2, max-content);
+  }
+
+  .skills__container,
+  .services__container{
+    column-gap: 5rem;
+    justify-content: center;
+  }
+
+  .qualification__container{
+    grid-template-columns: repeat(2, max-content);
+    justify-content: center;
+    column-gap: 10rem;
+  }
+
+}
 /* For large devices */
+/* For large screens (1023px and above) */
+@media screen and (min-width: 1023px) {
+  /* Move header to top */
+  .header {
+    bottom: auto;
+    top: 0;
+  }
+
+  /* Remove the blob background and shadow */
+  .nav {
+    background-color: transparent;
+    box-shadow: none;
+    padding-inline: 0;
+    border-radius: 0;
+  }
+
+  /* Position the menu properly */
+  .nav__menu {
+    position: static;
+    width: auto;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  /* Change grid to flex and align to right */
+  .nav__list {
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  /* Make nav items horizontal */
+  .nav__link {
+    flex-direction: row;
+    gap: 0.5rem;
+    font-size: 1rem;
+  }
+
+  /* Hide toggle buttons on desktop */
+  .nav__toggle,
+  .nav__close {
+    display: none;
+  }
+
+  /* Adjust theme button position */
+  .nav__button {
+    margin-left: 2rem;
+  }
+  
+  .nav__item i{
+    display: none;
+  }
+
+  .nav__logo {
+  margin-right: auto;
+  }
+
+  .nav__container{
+    border: 0cap;
+  }
+
+  /* Dark mode styles - remove any unwanted borders */
+  .dark-theme .nav {
+    border: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+  }
+
+  /* If you're using a container element inside nav */
+  .dark-theme .nav .container {
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Alternative: Target the specific border property */
+  .dark-theme .nav {
+    border-color: transparent !important;
+    outline: none !important;
+  }
+
+  /* If the border appears on the header instead */
+  .dark-theme .header {
+    border-bottom: none !important;
+  }
+
+  /* For the frosted glass effect without border */
+  .dark-theme .header {
+    background: rgba(15, 15, 15, 0.8) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  }
+
+  .dark-theme .nav__menu {
+    background-color: transparent;
+  }
+  
+  .dark-theme .nav__list {
+    background-color: transparent;
+  }
+  
+  .dark-theme .nav__link {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .dark-theme .nav__link:hover,
+  .dark-theme .active-link {
+    color: white;
+  }
+
+  .header {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: background 0.3s ease, border-color 0.3s ease;
+  }
+
+  .scrollup{
+    right: 3rem;
+  }
+
+  .show-scroll{
+    bottom: 5rem;
+  }
+}
+
